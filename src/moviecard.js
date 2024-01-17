@@ -1,21 +1,23 @@
 import React from "react";
-// import './index.css';
+import './index.css';
 class MovieCard extends React.Component{
-    constructor(){
-        super();  
-        this.state={
-            name:"priya",
-            city:"jhansi",
+    // constructor(){
+    //     super();  
+    //     this.state={
+    //         // name:"priya",
+    //         // city:"jhansi",
 
-            title:"The Avengers",
-            plot:"THE MOVIE IS ABOUT SUPERNATURAL POWERS",
-            rating:8.9,
-            price:199,
-            stars:0,
+    //         title:"The Avengers",
+    //         plot:"THE MOVIE IS ABOUT SUPERNATURAL POWERS",
+    //         rating:8.9,
+    //         price:199,
+    //         stars:0,
+    //         fav:false,
+    //         isInCart:false
 
-        }
+    //     }
     
-    }
+    // }
     addStars=()=>{
         //form1
         // this.setState({
@@ -37,18 +39,22 @@ class MovieCard extends React.Component{
       })
     }
     handleFav=()=>{
-
+       this.setState({
+        fav:!this.state.fav
+       })
     }
     addCart=()=>{
-
+       this.setState({
+        isInCart:!this.state.isInCart
+       })
     }
   render(){
-    const {title,plot,price,rating,stars}=this.state;
+    const {title,plot,price,rating,stars,fav,isInCart}=this.props.movies;
     return(
         <>
-        <h1 className="heading">Hey this is the first heading</h1>
+        {/* <h1 className="heading">Hey this is the first heading</h1>
         <h2>hey this is {this.state.name}</h2>
-        <h2>lives in city {this.state.city}</h2>
+        <h2>lives in city {this.state.city}</h2> */}
 
 
         <div className="main">
@@ -70,9 +76,13 @@ class MovieCard extends React.Component{
                       <span  className="star-count">{stars}</span>   
                   </div>
                   <div className="buttonss">
-                  <button className="unfev-button" onClick={this.handleFav}>unfevourate</button>
-                  <button className="fev-button" onClick={this.handleFav}>fevourate</button> 
-                  <button className="cart" onClick={this.addCart}>Add your cart</button>
+                    {fav? <button className="unfev-button" onClick={this.handleFav}>unfevourate</button>:
+                    <button className="fev-button" onClick={this.handleFav}>fevourate</button> }
+                  {/* <button className="unfev-button" onClick={this.handleFav}>unfevourate</button>
+                  <button className="fev-button" onClick={this.handleFav}>fevourate</button>  */}
+                  {isInCart? <button className="cart" onClick={this.addCart}>Add your cart</button>:
+                   <button className="un-cart" onClick={this.addCart}>Romove From your cart</button> }
+                 
                   </div>
                </div>
             </div>

@@ -1,13 +1,13 @@
-import MovieCard from "./moviecard";
+import MovieList from "./movielist";
+
 
 function App() {
   return (
     <>
-   <div>Hey</div>
-   <MovieCard/>
-   <MovieCard/>
-   <MovieCard/>
-   <MovieCard/>
+   <h1>MOVIE APP</h1>
+   <MovieList/> 
+   {/* pssing props */}
+   
    </>
   );
 }

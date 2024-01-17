@@ -59,5 +59,16 @@ code {
 .price{
   height: 45px;
 }
-
+.unfev-button{
+  background-color: aquamarine;
+}
+.fev-button{
+  background-color: rgba(0, 128, 115, 0.63);
+}
+.cart{
+  background-color: blue;
+}
+.un-cart{
+  background-color: red;
+}
 
