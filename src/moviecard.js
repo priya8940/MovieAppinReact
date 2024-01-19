@@ -49,7 +49,7 @@ class MovieCard extends React.Component{
        })
     }
   render(){
-    const {title,plot,price,rating,stars,fav,isInCart}=this.props.movies;
+    const {title,plot,price,rating,stars,fav,isInCart}=this.props.movieData;
     return(
         <>
         {/* <h1 className="heading">Hey this is the first heading</h1>
@@ -72,7 +72,7 @@ class MovieCard extends React.Component{
                   <div className="star-dis">
                       <img className="star-btn" alt="decrease" src="https://cdn-icons-png.flaticon.com/128/43/43625.png" onClick={this.decStars}/>
                       <img alt="star" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" className="stars" />
-                      <img className="star-btn" alt="increase"src="https://cdn-icons-png.flaticon.com/128/748/748113.png"onClick={this.addStars} />
+                      <img className="star-btn" alt="increase"src="https://cdn-icons-png.flaticon.com/128/748/748113.png"onClick={()=>{this.props.addStars(this.props.movies)}} />
                       <span  className="star-count">{stars}</span>   
                   </div>
                   <div className="buttonss">

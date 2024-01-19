@@ -1,19 +1,13 @@
  import React, { Component } from "react";
 import MovieCard from "./moviecard";
-// import MovieCard from "./moviecard";
+ 
 class MovieList extends Component{
     constructor(){
         super();  
         this.state={
-            // title:"The Avengers",
-            // plot:"THE MOVIE IS ABOUT SUPERNATURAL POWERS",
-            // rating:8.9,
-            // price:199,
-            // stars:0,
-            // fav:false,
-            // isInCart:false
             movies:[
-                {
+                {   
+                    id:1,
                     title:'The dark night',
                     plot:"Erths mighteist heroes come together and learn to fight",
                     rating:'8.0',
@@ -26,6 +20,7 @@ class MovieList extends Component{
 
                 },
                 {
+                    id:2,
                     title:'The dark night',
                     plot:"Erths mighteist heroes come together and learn to fight",
                     rating:'8.0',
@@ -37,7 +32,8 @@ class MovieList extends Component{
 
 
                 },
-                {
+                {    
+                    id:3,
                     title:'The dark night',
                     plot:"Erths mighteist heroes come together and learn to fight",
                     rating:'8.0',
@@ -54,47 +50,32 @@ class MovieList extends Component{
         }
     
     }
+    handleIncStars=(movie)=>{
+        const {movies}=this.state;
+        const mid=movies.indexOf(movie);
+        if(movies[mid].stars>=5){
+            return;
+        }
+        movies[mid].stars+=0.5;
+      this.setState({
+        movies:movies
+      })
+    }
     render(){
-        //const {title,plot,rating,price,stars,fav,isInCart,poster}=this.state.movies;
         return(
             <>
             <h1>MOVIE LIST</h1>
-              {/* <MovieCard title={title}
-                        plot={plot}
-                        rating={rating}
-                        price={price}
-                        stars={stars}
-                        fav={fav}
-                        isInCart={isInCart}
-
-              
-              /> */}
-              <MovieCard movies={this.state}/>
+            {
+            this.state.movies.map(
+                (movie)=>{ return <MovieCard movieData={movie} 
+                addStars={this.handleIncStars}
+                key={movie.id}
+                />}
+            )}
+              {/* <MovieCard data={this.state}/> */}
               
             </>
         )
     }
 }
 export default MovieList;
-
-
-// class MovieList extends Component{
-//     render(){
-//         const {movies,addStars,decStars,toggleFav,togglCart}=this.props;
-//         console.log(this.props);
-
-//         return(
-//             <>
-//             {movies.map((movie)=> <MovieCard movies={movie}
-//                                              addStars={addStars}
-//                                              decStars={decStars}
-//                                              toggleFav={toggleFav}
-//                                              togglCart={togglCart}
-//                                              key={movie.id}
-
-
-//                                        />)}
-//             </>
-//         )
-//     }
-// }
